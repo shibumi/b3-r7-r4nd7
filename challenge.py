@@ -81,6 +81,10 @@ class Challenge:
         # Ok let's plot the graphic
         matplotlib.pyplot.savefig("challenge.pdf")
 
+    def expose_statistics(self):
+        # TODO expose statistics via webbrowser for microservices
+        pass
+
 
 if __name__ == '__main__':
     challenge = Challenge()
