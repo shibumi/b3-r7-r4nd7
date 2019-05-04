@@ -10,11 +10,10 @@
 # I thought about using C++, but the hassle with loading and working with json stopped me doing so.
 # This approach is now much shorter and better understandable.
 
-from dijkstar import Graph, find_path # for actual shortest path calculation
+from dijkstar import Graph, find_path  # for actual shortest path calculation
 import json
-import networkx # for drawing nice graphs as output
+import networkx  # for drawing nice graphs as output
 import matplotlib.pyplot
-
 
 
 class Challenge:
@@ -53,13 +52,13 @@ class Challenge:
         #    solutions if they are erroneous. With this workflow we can focus on the actual work and save time/money.
         # 4. I am mostly interested in DevOps and Site-Reliability Engineering.
         #    So I went with the shortest solution as possible with the best effect. This way I can reduce toil.
-        path = find_path(self.graph,self.EARTH, self.BERTRAND, cost_func=self.cost_func)
+        path = find_path(self.graph, self.EARTH, self.BERTRAND, cost_func=self.cost_func)
         return path
 
     def draw_shortest_path(self):
         # here we generate a complete graph and calculate the shortest path
         complete_graph = networkx.Graph()
-        for i in range(0,999):
+        for i in range(0, 999):
             complete_graph.add_node(i)
         for edge in self.galaxy_data['edges']:
             complete_graph.add_edge(edge['source'], edge['target'])
@@ -86,4 +85,3 @@ class Challenge:
 if __name__ == '__main__':
     challenge = Challenge()
     challenge.draw_shortest_path()
-
