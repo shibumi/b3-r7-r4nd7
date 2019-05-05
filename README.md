@@ -3,6 +3,8 @@
 This is my solution for the coding challenge of https://get-in-it.de and Bertrand.
 The challenge is located here: https://www.get-in-it.de/coding-challenge
 
+![thumbnail of my generated graphic](challenge.png)
+
 ## What is it about?
 
 The task was to find the shortest path from the planet `Earth` to the planet `b3-r7-r4nd7`.
