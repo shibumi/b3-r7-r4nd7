@@ -11,9 +11,11 @@
 # This approach is now much shorter and better understandable.
 
 from dijkstar import Graph, find_path  # for actual shortest path calculation
-import json
+import json  # for reading the json file
 import networkx  # for drawing nice graphs as output
-import matplotlib.pyplot
+import matplotlib.pyplot  # for converting the graph into PDF
+import argparse  # for parsing arguments
+import sys  # for counting arguments
 
 
 class Challenge:
@@ -39,6 +41,8 @@ class Challenge:
         # This cost function will just return the cost itself for every node
         self.cost_func = lambda u, v, e, prev_e: e['cost']
 
+    # This method calculates the shortest path. Time complexity is O(len(nodes)^2 in the worst case.
+    # In the best case we can achieve a time complexity of O(len(nodes) log len(nodes) + len(edges)).
     def calculate_shortest_path(self):
         # Do the actual calculation. I use the dijkstar python module here, because of a few reasons:
         # 1. Technical debt: I am not a mathematician, therefore it cost me time to implement a fully working dijkstra
@@ -55,6 +59,7 @@ class Challenge:
         path = find_path(self.graph, self.EARTH, self.BERTRAND, cost_func=self.cost_func)
         return path
 
+    # This draws the shortest path in a PDF file
     def draw_shortest_path(self):
         # here we generate a complete graph and calculate the shortest path
         complete_graph = networkx.Graph()
@@ -81,11 +86,36 @@ class Challenge:
         # Ok let's plot the graphic
         matplotlib.pyplot.savefig("challenge.pdf")
 
-    def expose_statistics(self):
-        # TODO expose statistics via webbrowser for microservices
-        pass
+    # Pretty print method.. just outputs some statistics in nice format
+    def pretty_print(self):
+        print()
+        print("------ Statistics ------")
+        path = self.calculate_shortest_path()
+        print("Shortest path: ", end='')
+        for i in range(0, len(path[0])):
+            print(path[0][i], end='')
+            if i != len(path[0])-1:
+                print(" <--> ", end='')
+        print()
+        print("Edge costs   : ", end='')
+        print(path[2])
+        print("Total cost   : ", path[3])
+        print("------------------------")
+        print()
 
 
+# This is the entrypoint for our program
 if __name__ == '__main__':
     challenge = Challenge()
-    challenge.draw_shortest_path()
+    # we use the argparser to parse arguments
+    parser = argparse.ArgumentParser(description='Find the shortest path for the get-in-IT/bertrand challenge')
+    parser.add_argument('--statistics', '-s', help='Print statistics in ASCII', action='store_true')
+    parser.add_argument('--graphic', '-g', help='Generate statistics as PDF format', action='store_true')
+    args = parser.parse_args()
+    # If we have less than two arguments, we print the help output
+    if len(sys.argv) < 2:
+        parser.print_help()
+    if args.statistics:
+        challenge.pretty_print()
+    if args.graphic:
+        challenge.draw_shortest_path()

@@ -9,13 +9,18 @@
 # This is our unittest for testing our calculation
 
 import unittest
+from challenge import Challenge
 
 
 class TestMain(unittest.TestCase):
 
+    # This is a small test to verify our result
     def test_result(self):
-        # TODO: check the actual result if it's correct
-        pass
+        # this is our expected result for the shortest path
+        expected_result = [18, 810, 595, 132, 519, 71, 432, 246]
+        challenge = Challenge()
+        path = challenge.calculate_shortest_path()
+        self.assertEqual(expected_result, path[0])
 
 
 if __name__ == '__main__':
