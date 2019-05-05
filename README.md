@@ -1,6 +1,6 @@
 # b3-r7-r4nd7
 
-This is my solution for the coding challenge of https://get-in-it.de and Bertrand.
+This is my solution for the coding challenge of https://get-in-it.de and Bertrandt.
 The challenge is located here: https://www.get-in-it.de/coding-challenge
 
 ![thumbnail of my generated graphic](challenge.png)
@@ -47,7 +47,7 @@ This will print the following help:
 ```
 usage: challenge.py [-h] [--statistics] [--graphic]
 
-Find the shortest path for the get-in-IT/bertrand challenge
+Find the shortest path for the get-in-IT/Bertrandt challenge
 
 optional arguments:
   -h, --help        show this help message and exit

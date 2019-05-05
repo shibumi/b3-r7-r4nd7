@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Implementation for the get-in-IT and bertrand cooding challenge on:
+# Implementation for the get-in-IT and Bertrandt cooding challenge on:
 # https://www.get-in-it.de/coding-challenge#mitmachen
 #
 # Author: Christian Rebischke - <christian.rebischke@tu-clausthal.de>

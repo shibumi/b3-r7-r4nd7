@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Implementation for the get-in-IT and bertrand cooding challenge on:
+# Implementation for the get-in-IT and Bertrandt cooding challenge on:
 # https://www.get-in-it.de/coding-challenge#mitmachen
 #
 # Author: Christian Rebischke - <christian.rebischke@tu-clausthal.de>
@@ -108,7 +108,7 @@ class Challenge:
 if __name__ == '__main__':
     challenge = Challenge()
     # we use the argparser to parse arguments
-    parser = argparse.ArgumentParser(description='Find the shortest path for the get-in-IT/bertrand challenge')
+    parser = argparse.ArgumentParser(description='Find the shortest path for the get-in-IT/Bertrandt challenge')
     parser.add_argument('--statistics', '-s', help='Print statistics in ASCII', action='store_true')
     parser.add_argument('--graphic', '-g', help='Generate statistics as PDF format', action='store_true')
     args = parser.parse_args()
